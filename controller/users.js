@@ -34,7 +34,7 @@ const update = (req,res) => {
   res.json(updatedUser)
 }
 
-const delete = (req,res) => {
+const erase = (req,res) => {
   const {body} = req
   const {id} = req.params
   const user = users.find((user) => user.id == id)
@@ -42,7 +42,7 @@ const delete = (req,res) => {
     ...body,
   }
 
-  users.pop(deletedUser)
+  users.splice(deletedUser, 1)
   res.json(users)
 }
 
@@ -51,5 +51,5 @@ module.exports = {
   show,
   create,
   update,
-  delete
+  erase
 }
